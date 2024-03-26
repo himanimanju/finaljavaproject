@@ -66,11 +66,11 @@ public class GameView {
         int v1 = 20;
         endX = 100*(2*Math.pow(v1, 2)*Math.cos(angle)*Math.sin(angle))/9.8;
         endY = 0;
-        System.out.println(endX + ", " + endY);,
+        System.out.println(endX + ", " + endY);
         double y = startX/(v1*Math.cos(angle));
         midX = (startX + endX)/2;
         midY = startY - (startX*Math.tan(angle) + 0.5*9.8*Math.pow(y, 2));
-        Circle circ1 = new
+        // Circle circ1 = new
 
     }
 
