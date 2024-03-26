@@ -70,7 +70,7 @@ public class GameView {
         double y = startX/(v1*Math.cos(angle));
         midX = (startX + endX)/2;
         midY = startY - (startX*Math.tan(angle) + 0.5*9.8*Math.pow(y, 2));
-        // Circle circ1 = new
+        // Circle circ1 = new Circle();
 
     }
 
