@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.QuadCurve;
 
 public class GameView {
@@ -13,36 +11,11 @@ public class GameView {
     private double angle;
 
     @FXML
-    BorderPane root;
-    @FXML
-    Button angleBtn;
-    @FXML
     TextField angleText;
     @FXML
     Label errorLabel;
     @FXML
     Button shootBtn;
-
-    ////////////////////////////////////////////////////////////////////////
-    /*
-
-    @FXML
-    private void initialize() {
-        root.widthProperty().addListener((observable, oldValue, newValue) -> {
-            // Adjust UI elements based on new width
-            double newWidth = (double) newValue;
-            // Update sizes, positions, or any other adjustments here
-        });
-
-        root.heightProperty().addListener((observable, oldValue, newValue) -> {
-            // Adjust UI elements based on new height
-            double newHeight = (double) newValue;
-            // Update sizes, positions, or any other adjustments here
-        });
-    }
-
-     */
-////////////////////////////////////////////////////////////////////////
 
     //does the action for the angle button on the screen
     @FXML
@@ -97,7 +70,7 @@ public class GameView {
         double y = startX/(v1*Math.cos(angle));
         midX = (startX + endX)/2;
         midY = startY - (startX*Math.tan(angle) + 0.5*9.8*Math.pow(y, 2));
-        //Circle circ1 = new
+        // Circle circ1 = new
 
     }
 
