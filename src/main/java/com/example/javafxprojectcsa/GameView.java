@@ -1,12 +1,19 @@
 package com.example.javafxprojectcsa;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.scene.shape.QuadCurve;
 
-public class GameView {
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class GameView implements Initializable{
     private int score;
     private double angle;
 
@@ -16,7 +23,17 @@ public class GameView {
     Label errorLabel;
     @FXML
     Button shootBtn;
+    @FXML
+    ImageView hoopImage;
 
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        File file = new File("src/main/resources/Image/hoopImage.png");
+        Image image = new Image(file.toURI().toString());
+        hoopImage.setImage(image);
+    }
     //does the action for the angle button on the screen
     @FXML
     private void onAngleBtnClick() {

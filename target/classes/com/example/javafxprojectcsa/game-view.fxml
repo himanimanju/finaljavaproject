@@ -30,7 +30,7 @@
       </HBox>
    </bottom>
    <right>
-      <ImageView fitHeight="318.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
+      <ImageView fx:id="hoopImage" fitHeight="318.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
    </right>
    <top>
       <HBox BorderPane.alignment="CENTER">

@@ -32,6 +32,7 @@ public class HelloController {
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Game Screen");
         stage.setScene(new Scene(root1));
+
         stage.show();
         stage.onCloseRequestProperty().setValue(e -> Platform.exit());
         //stage.setTitle("Start Screen");
