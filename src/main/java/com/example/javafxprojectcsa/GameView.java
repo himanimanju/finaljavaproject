@@ -152,7 +152,7 @@ public class GameView implements Initializable{
         if (isShotMade(endX, endY)) {
             System.out.println("Shot made!");
             successfulShots++;
-            updateShotsMadeLabel();
+            // updateShotsMadeLabel();
         } else {
             System.out.println("Shot missed!");
         }
