@@ -56,6 +56,7 @@ public class GameView implements Initializable{
         File file1 = new File("src/main/resources/Image/basketball.png");
         Image image1 = new Image(file1.toURI().toString());
         ballImage.setImage(image1);
+
 /*TRYING TO FIGURE OUT HOW TO ADD THE BBALL IMAGE IDK HOW
         Image image = new Image(new File("src/main/resources/Image/basketball.png").toURI().toString());
         ballImage.setImage(image);
@@ -110,27 +111,27 @@ public class GameView implements Initializable{
         angleText.clear();
     }
     @FXML
-    private void onShootBtnCLick(){
+    private void onShootBtnClick(){
         System.out.println("shoot");
         //need to calculate shot using angle and then move the image
         double endY;
         double endX;
         double midX;
         double midY;
-        int startX = 50;
-        int startY = 200;
+        double startX = ballImage.getX();
+        double startY = ballImage.getY();
         int v1 = 20;
         endX = 100*(2*Math.pow(v1, 2)*Math.cos(angle)*Math.sin(angle))/9.8;
         endY = 0;
         System.out.println(endX + ", " + endY);
-        double y = startX/(v1*Math.cos(angle));
-        midX = (startX + endX)/2;
-        midY = startY - (startX*Math.tan(angle) + 0.5*9.8*Math.pow(y, 2));
-        // Circle circ1 = new Circle();
+        //double y = startX/(v1*Math.cos(angle));
+        //midX = (startX + endX)/2;
+        //midY = startY - (startX*Math.tan(angle) + 0.5*9.8*Math.pow(y, 2));
 
         //trying
         // Calculate shot path
         calculateShotPath(startX, startY, endX, endY);
+        traceShotPath(ballImage);
 /*ANOTHER TRY TO ADD THE BBALL IMAGE - CONFUSED
         // Create basketball image
         Image ballImage = new Image("basketball.png");
@@ -155,11 +156,21 @@ public class GameView implements Initializable{
         } else {
             System.out.println("Shot missed!");
         }
+        //note only for testing if the label works
+        successfulShots++;
+        shotsMadeLabel.setText("Shots Made: " + successfulShots);
+        shootBtn.setVisible(false);
     }
 
     //trying
     private void calculateShotPath(double startX, double startY, double endX, double endY) {
         // Calculate the number of points along the shot path
+        //should actually base it on the time it takes the ball to fall
+        //we can calculate that using the formula to find how much time it would actually take for the
+        //ball to fall
+        //then use maybe 100 points divided from that time in order to calculate for x and y
+        //cuz then it will be more accurate
+        //not sure if we wnat to go through the trouble or not though
         int numPoints = 100;
         pathX = new double[numPoints];
         pathY = new double[numPoints];
@@ -167,7 +178,12 @@ public class GameView implements Initializable{
         // Calculate coordinates of each point along the shot path
         for (int i = 0; i < numPoints; i++) {
             double t = (double) i / (numPoints - 1);
+            //x should increase a constant amount every time
             double x = (1 - t) * startX + t * endX;
+            //y should increase, then decrease because it is a parabola
+            //so maybe do an if statement--if i <= numpoints/2, then y increase
+            //but if i > numpoints/2, then y decrease
+            //idk how the pathX and pathY functions work so im not gonna do anything about that
             double y = (1 - t) * startY + t * endY;
             pathX[i] = x;
             pathY[i] = y;
@@ -224,12 +240,12 @@ public class GameView implements Initializable{
         // If the calculated distance is less than or equal to the threshold distance, consider the shot made
         return distance <= thresholdDistance;
     }
-
-    private void updateShotsMadeLabel() {
+    //don't really need this
+    /*private void updateShotsMadeLabel() {
         // Update the label to display the number of successful shots
         shotsMadeLabel.setText("Shots Made: " + successfulShots);
     }
-
+*/
 }
 
 //Himani crying over:
