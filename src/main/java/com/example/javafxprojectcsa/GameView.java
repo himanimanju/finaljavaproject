@@ -38,8 +38,8 @@ public class GameView implements Initializable{
     ImageView ballImage;
     @FXML
     Label shotsMadeLabel; // need to add label in scene builder to display successful shots :((((
-    @FXML
-    private BorderPane borderPane;
+  //  @FXML
+  //  private BorderPane borderPane;
 
     ///trying
     private double[] pathX;
@@ -53,6 +53,9 @@ public class GameView implements Initializable{
         Image image = new Image(file.toURI().toString());
         hoopImage.setImage(image);
 
+        File file1 = new File("src/main/resources/Image/basketball.png");
+        Image image1 = new Image(file1.toURI().toString());
+        ballImage.setImage(image1);
 /*TRYING TO FIGURE OUT HOW TO ADD THE BBALL IMAGE IDK HOW
         Image image = new Image(new File("src/main/resources/Image/basketball.png").toURI().toString());
         ballImage.setImage(image);

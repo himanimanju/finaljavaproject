@@ -30,7 +30,7 @@
       </HBox>
    </bottom>
    <right>
-      <ImageView fx:id="hoopImage" fitHeight="318.0" fitWidth="168.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
+      <ImageView fx:id="hoopImage" fitHeight="318.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
    </right>
    <top>
       <HBox BorderPane.alignment="CENTER">
@@ -55,10 +55,10 @@
       </HBox>
    </top>
    <left>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="342.0" prefWidth="182.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="216.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="332.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ballImage" fitHeight="74.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" translateY="150.0" />
          </children>
       </HBox>
    </left>
