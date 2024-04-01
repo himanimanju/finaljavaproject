@@ -8,7 +8,7 @@
 
 <BorderPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxprojectcsa.GameView">
    <bottom>
-      <HBox spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="29.0" prefWidth="700.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Enter in desired angle:">
                <font>
@@ -30,10 +30,10 @@
       </HBox>
    </bottom>
    <right>
-      <ImageView fx:id="hoopImage" fitHeight="318.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
+      <ImageView fx:id="hoopImage" fitHeight="140.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
    </right>
    <top>
-      <HBox BorderPane.alignment="CENTER">
+      <HBox prefHeight="20.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Java Basketball Association">
                <font>
@@ -55,10 +55,10 @@
       </HBox>
    </top>
    <left>
-      <HBox prefHeight="342.0" prefWidth="182.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="350.0" prefWidth="180.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="332.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="ballImage" fitHeight="74.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" translateY="150.0" />
+            <ImageView fx:id="personImage" fitHeight="240.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" translateY="100.0" />
+            <ImageView fx:id="ballImage" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateY="150.0" />
          </children>
       </HBox>
    </left>
