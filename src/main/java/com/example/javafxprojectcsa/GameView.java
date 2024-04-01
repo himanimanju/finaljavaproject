@@ -65,8 +65,8 @@ public class GameView implements Initializable {
             System.out.println("Converted integer: " + number);
             if(number < 0 || number > 90)
             {
-                System.out.println("Invalid angle input. Please enter a number from 0 to 90");
-                errorLabel.setText("Invalid angle input. Please enter a number from 0 to 90");
+                System.out.println("Invalid input. Enter a number from 0 to 90");
+                errorLabel.setText("Invalid input. Enter a number from 0 to 90");
             }
             else
             {
@@ -75,8 +75,8 @@ public class GameView implements Initializable {
                 shootBtn.setVisible(true);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid integer input. Please enter a number");
-            errorLabel.setText("Invalid integer input. Please enter a number");
+            System.out.println("Invalid input. Please enter an integer");
+            errorLabel.setText("Invalid input. Please enter an integer");
         }
 
         angle = number*Math.PI/180;
