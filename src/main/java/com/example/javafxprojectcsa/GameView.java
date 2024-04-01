@@ -266,14 +266,26 @@ public class GameView implements Initializable{
 
         // If the calculated distance is less than or equal to the threshold distance, consider the shot made
         return distance <= thresholdDistance;
+
+
+        /*jwijisjijdiednieifnfinr ignore this
+        double ballMinX = ballImage.getBoundsInParent().getMinX();
+        double ballMaxX = ballImage.getBoundsInParent().getMaxX();
+        double ballMinY = ballImage.getBoundsInParent().getMinY();
+        double ballMaxY = ballImage.getBoundsInParent().getMaxY();
+
+        double hoopMinX = hoopImage.getBoundsInParent().getMinX();
+        double hoopMaxX = hoopImage.getBoundsInParent().getMaxX();
+        double hoopMinY = hoopImage.getBoundsInParent().getMinY();
+        double hoopMaxY = hoopImage.getBoundsInParent().getMaxY();
+
+        // Check if the ball intersects with the hoop
+        boolean intersectsX = ballMaxX >= hoopMinX && ballMinX <= hoopMaxX;
+        boolean intersectsY = ballMaxY >= hoopMinY && ballMinY <= hoopMaxY;
+
+        return intersectsX && intersectsY;
+         */
     }
 }
 
-//Himani crying over:
-//NEED TO FIGURE OUT HOW TO HAVE PROGRAM IDENTIFY IF SHOT IS MADE OR MISSED AND KEEP COUNT OF IT
-//RN ITS ONLY SHOTS MISSED KMS
-//BRO IDK HOW TO FIND THE CENTER OF THE HOOP AHSHIAHISHIAHIHSIJAINBIAHISHI
-//NEED TO
-//need to still scale this up to fit any screen size but at this point that is a last priority because scene builder
-//will be the end of me
 
