@@ -45,6 +45,8 @@ public class GameView implements Initializable{
     QuadCurve testCurve;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private Label shotResultLabel;
 
     ///trying
     private double[] pathX;
@@ -122,16 +124,20 @@ public class GameView implements Initializable{
         calculateShotPath(startX, startY, endX, endY, v1);
         //traceShotPath(ballImage);
 
+        boolean isShotMade = isShotMade(endX, endY);
+
         /////////////////////himani added to see if we could identify if shot is made and record it
         if (isShotMade(endX, endY)) {
+            shotResultLabel.setText("Shot made!");
             System.out.println("Shot made!");
             successfulShots++;
             // updateShotsMadeLabel();
         } else {
+            shotResultLabel.setText("Shot missed!");
             System.out.println("Shot missed!");
         }
         //note only for testing if the label works
-        successfulShots++;
+        //successfulShots++;
         shotsMadeLabel.setText("Shots Made: " + successfulShots);
         shootBtn.setVisible(false);
         errorLabel.setVisible(false);
@@ -255,6 +261,7 @@ public class GameView implements Initializable{
         int hoopCenterX = borderPane.getWidth() - hoopImage.getWidth/2;
         int hoopCenterY = top hbox height + hoopImage.getHeight/2;
          */
+        /*
         double hoopCenterX = 634;
         double hoopCenterY = 90;
 
@@ -266,9 +273,9 @@ public class GameView implements Initializable{
 
         // If the calculated distance is less than or equal to the threshold distance, consider the shot made
         return distance <= thresholdDistance;
+*/
 
-
-        /*jwijisjijdiednieifnfinr ignore this
+        //jwijisjijdiednieifnfinr ignore this
         double ballMinX = ballImage.getBoundsInParent().getMinX();
         double ballMaxX = ballImage.getBoundsInParent().getMaxX();
         double ballMinY = ballImage.getBoundsInParent().getMinY();
@@ -284,6 +291,19 @@ public class GameView implements Initializable{
         boolean intersectsY = ballMaxY >= hoopMinY && ballMinY <= hoopMaxY;
 
         return intersectsX && intersectsY;
+
+        /*
+        double hoopCenterX = hoopImage.getBoundsInParent().getMinX() + hoopImage.getBoundsInParent().getWidth() / 2;
+        double hoopCenterY = hoopImage.getBoundsInParent().getMinY() + hoopImage.getBoundsInParent().getHeight() / 2;
+
+        // Calculate the distance between the end coordinates of the shot and the center of the hoop
+        double distance = Math.sqrt(Math.pow(endX - hoopCenterX, 2) + Math.pow(endY - hoopCenterY, 2));
+
+        // Define a threshold distance within which the shot is considered made
+        double thresholdDistance = 5; // Adjust this value based on your game's requirements
+
+        // If the calculated distance is less than or equal to the threshold distance, consider the shot made
+        return distance <= thresholdDistance;
          */
     }
 }

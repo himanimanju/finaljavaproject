@@ -8,21 +8,46 @@
 
 <BorderPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxprojectcsa.GameView">
    <bottom>
-      <HBox prefHeight="29.0" prefWidth="700.0" spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="29.0" prefWidth="633.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Enter in desired angle:">
+            <Label text="Enter desired angle from 1-90:">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding>
             </Label>
             <TextField fx:id="angleText">
                <HBox.margin>
-                  <Insets left="30.0" />
+                  <Insets />
                </HBox.margin>
             </TextField>
-            <Button fx:id="angleBtn" mnemonicParsing="false" onAction="#onAngleBtnClick" text="Enter" />
-            <Label fx:id="errorLabel" />
-            <Button fx:id="shootBtn" mnemonicParsing="false" onAction="#onShootBtnClick" text="SHOOT!" visible="false" />
+            <Button fx:id="angleBtn" mnemonicParsing="false" onAction="#onAngleBtnClick" text="Enter">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font></Button>
+            <Label fx:id="errorLabel">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="2.0" top="5.0" />
+               </HBox.margin></Label>
+            <Button fx:id="shootBtn" mnemonicParsing="false" onAction="#onShootBtnClick" text="SHOOT!" visible="false">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font></Button>
+            <Label fx:id="shotResultLabel" text="">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-202.0" top="5.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets right="50.0" />
+               </padding></Label>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -30,23 +55,32 @@
       </HBox>
    </bottom>
    <right>
-      <ImageView fx:id="hoopImage" fitHeight="140.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER" />
+      <ImageView fx:id="hoopImage" fitHeight="140.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
+         <BorderPane.margin>
+            <Insets right="120.0" top="50.0" />
+         </BorderPane.margin></ImageView>
    </right>
    <top>
       <HBox prefHeight="20.0" prefWidth="700.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Java Basketball Association">
+            <Label text="Java Basketball Association" textFill="#801111" BorderPane.alignment="TOP_CENTER">
                <font>
-                  <Font size="22.0" />
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
                </font>
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
+               <HBox.margin>
+                  <Insets top="15.0" />
+               </HBox.margin>
             </Label>
             <Label fx:id="shotsMadeLabel" prefHeight="26.0" prefWidth="180.0" text="Shots Made: 0">
                <font>
-                  <Font size="17.0" />
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
                </font>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
             </Label>
          </children>
          <padding>
@@ -57,7 +91,10 @@
    <left>
       <HBox prefHeight="350.0" prefWidth="180.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="personImage" fitHeight="240.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" translateY="100.0" />
+            <ImageView fx:id="personImage" fitHeight="240.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" translateY="100.0">
+               <HBox.margin>
+                  <Insets left="15.0" top="-20.0" />
+               </HBox.margin></ImageView>
             <ImageView fx:id="ballImage" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" translateY="150.0" />
          </children>
       </HBox>
