@@ -124,7 +124,7 @@ public class GameView implements Initializable{
         calculateShotPath(startX, startY, endX, endY, v1);
         //traceShotPath(ballImage);
 
-        boolean isShotMade = isShotMade(endX, endY);
+        //boolean isShotMade = isShotMade(endX, endY);
 
         /////////////////////himani added to see if we could identify if shot is made and record it
         if (isShotMade(endX, endY)) {
@@ -276,6 +276,7 @@ public class GameView implements Initializable{
 */
 
         //jwijisjijdiednieifnfinr ignore this
+          /*
         double ballMinX = ballImage.getBoundsInParent().getMinX();
         double ballMaxX = ballImage.getBoundsInParent().getMaxX();
         double ballMinY = ballImage.getBoundsInParent().getMinY();
@@ -292,7 +293,6 @@ public class GameView implements Initializable{
 
         return intersectsX && intersectsY;
 
-        /*
         double hoopCenterX = hoopImage.getBoundsInParent().getMinX() + hoopImage.getBoundsInParent().getWidth() / 2;
         double hoopCenterY = hoopImage.getBoundsInParent().getMinY() + hoopImage.getBoundsInParent().getHeight() / 2;
 
@@ -305,6 +305,21 @@ public class GameView implements Initializable{
         // If the calculated distance is less than or equal to the threshold distance, consider the shot made
         return distance <= thresholdDistance;
          */
+
+        double hoopMinX = hoopImage.getBoundsInParent().getMinX();
+        double hoopMaxX = hoopImage.getBoundsInParent().getMaxX();
+        double hoopMinY = hoopImage.getBoundsInParent().getMinY();
+        double hoopMaxY = hoopImage.getBoundsInParent().getMaxY();
+
+        double ballMinX = ballImage.getBoundsInParent().getMinX();
+        double ballMaxX = ballImage.getBoundsInParent().getMaxX();
+        double ballMinY = ballImage.getBoundsInParent().getMinY();
+        double ballMaxY = ballImage.getBoundsInParent().getMaxY();
+
+        boolean intersectsX = (ballMaxX >= hoopMinX && ballMinX <= hoopMaxX) || (ballMinX <= hoopMaxX && ballMaxX >= hoopMinX);
+        boolean intersectsY = (ballMaxY >= hoopMinY && ballMinY <= hoopMaxY) || (ballMinY <= hoopMaxY && ballMaxY >= hoopMinY);
+
+        return intersectsX && intersectsY;
     }
 }
 
