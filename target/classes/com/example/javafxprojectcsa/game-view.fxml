@@ -43,7 +43,7 @@
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
                <HBox.margin>
-                  <Insets left="-202.0" top="5.0" />
+                  <Insets left="-200.0" top="5.0" />
                </HBox.margin>
                <padding>
                   <Insets right="50.0" />
