@@ -75,6 +75,7 @@ public class GameView implements Initializable{
         System.out.println("Enter");
         shootBtn.setVisible(false);
         shootBtn.setVisible(false);
+        shotResultLabel.setVisible(false);
         errorLabel.setText("");
         String input = angleText.getText();
         System.out.println(input);
@@ -139,6 +140,7 @@ public class GameView implements Initializable{
         //note only for testing if the label works
         //successfulShots++;
         shotsMadeLabel.setText("Shots Made: " + successfulShots);
+        shotResultLabel.setVisible(true);
         shootBtn.setVisible(false);
         errorLabel.setVisible(false);
     }
@@ -170,9 +172,9 @@ public class GameView implements Initializable{
             //double y = (1 - t) * startY + t * endY;
             if(i <= numPoints/2)
             {
-                y = y - 5;
+                y = y - 2;
             } else {
-                y = y + 5;
+                y = y + 2;
             }
             pathX[i] = x;
             pathY[i] = y;
@@ -184,7 +186,7 @@ public class GameView implements Initializable{
 
         double height= startX/(v1*Math.cos(angle));
         double midX = (startX + endX)/2;
-        double midY = startY - 10*(startX*Math.tan(angle) + 0.5*9.8*Math.pow(height, 2));
+        double midY = startY - 2*(startX*Math.tan(angle) + 0.5*9.8*Math.pow(height, 2));
         var cpX = 2*midX -pathX[0]/2 -pathX[99]/2;
         var cpY = 2*midY -pathY[0]/2 -pathY[99]/2;
         QuadCurve test = new QuadCurve();
