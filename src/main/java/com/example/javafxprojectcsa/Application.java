@@ -14,6 +14,7 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/FXML/title-view.fxml"));
         Parent root = fxmlLoader.load();
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
         stage.show();
     }
 
