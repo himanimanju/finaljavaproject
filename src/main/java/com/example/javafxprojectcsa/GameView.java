@@ -22,7 +22,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameView implements Initializable{
+public class GameView implements Initializable {
     private int score;
     private double angle;
     private int successfulShots = 0;
@@ -54,8 +54,7 @@ public class GameView implements Initializable{
     //private int pathIndex = 0;
 
     @FXML
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
         File file = new File("src/main/resources/Image/hoopImage.png");
         Image image = new Image(file.toURI().toString());
         hoopImage.setImage(image);
@@ -69,42 +68,28 @@ public class GameView implements Initializable{
         personImage.setImage(image2);
     }
 
-    //does the action for the angle button on the screen
     @FXML
     private void onAngleBtnClick() {
-        System.out.println("Enter");
-        shootBtn.setVisible(false);
-        shootBtn.setVisible(false);
         shotResultLabel.setVisible(false);
         errorLabel.setText("");
         String input = angleText.getText();
-        System.out.println(input);
-        int number = 0;
-        //check if it is a valid angle number from 0 to 90
-        //convert text to number
-        //if it is a valid angle, show shoot button and allow the person to shoot
+
         try {
-            number = Integer.parseInt(input);
-            System.out.println("Converted integer: " + number);
-            if(number < 0 || number > 90)
-            {
-                System.out.println("Invalid input. Enter a number from 0 to 90");
+            int number = Integer.parseInt(input);
+
+            if (number < 0 || number > 90) {
                 errorLabel.setText("Invalid input. Enter a number from 0 to 90");
-            }
-            else
-            {
+            } else {
                 errorLabel.setText("Angle entered is: " + number);
-                //want to show button only if angle is correct
                 shootBtn.setVisible(true);
+
+                angle = number * Math.PI / 180;
+                angleText.clear();
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter an integer");
             errorLabel.setText("Invalid input. Please enter an integer");
         }
-        angle = number*Math.PI/180;
-        angleText.clear();
         errorLabel.setVisible(true);
-
     }
 
     @FXML
