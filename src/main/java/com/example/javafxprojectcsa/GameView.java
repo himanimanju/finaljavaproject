@@ -70,18 +70,20 @@ public class GameView implements Initializable {
 
                 if (number < 0 || number > 90) {
                     errorLabel.setText("Invalid input.");
-                    errorLabel.setVisible(true);
+                    shootBtn.setVisible(false);
                 } else {
                     errorLabel.setText("Angle entered is: " + number);
                     shootBtn.setVisible(true);
 
                     angle = number * Math.PI / 180;
-                    angleText.clear();
                 }
+                errorLabel.setVisible(true);
             } catch (NumberFormatException e) {
                 errorLabel.setText("Invalid input.");
                 errorLabel.setVisible(true);
+                shootBtn.setVisible(false);
             }
+            angleText.clear();
         }
     }
 
