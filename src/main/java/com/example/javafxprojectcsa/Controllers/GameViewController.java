@@ -1,5 +1,6 @@
 package com.example.javafxprojectcsa.Controllers;
 
+import com.example.javafxprojectcsa.Application;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,24 +23,25 @@ import java.util.ResourceBundle;
 
 public class GameViewController implements Initializable {
     private double angle;
-    private int successfulShots = 0;
+    private double initialX, initialY;
+    public static int successfulShots = 0;
 
     @FXML
     private TextField angleText;
     @FXML
     private Label errorLabel;
     @FXML
-    private Button shootBtn, continueBtn, angleBtn;
+    private Button shootBtn, continueBtn, angleBtn, exitBtn;
     @FXML
     private ImageView hoopImage, ballImage, personImage;
     @FXML
     private Label shotsMadeLabel, shotResultLabel;
     @FXML
-    public QuadCurve quadCurve;
+    private QuadCurve quadCurve;
     @FXML
-    public Pane borderPane;
+    private Pane borderPane;
 
-    private double initialX, initialY;
+    // Sets images upon loading of the screen and the default position of the ball
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         File file = new File("src/main/resources/Image/hoopImage.png");
@@ -59,7 +61,13 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
+    public void onExitBtnClick() {
+        Application.loadScene("/FXML/end-view.fxml", shootBtn, null);
+    }
+
+    @FXML
     private void onAngleBtnClick() {
+        // If the user hasn't already made a shot
         if (!continueBtn.isVisible()) {
             shotResultLabel.setVisible(false);
             errorLabel.setVisible(false);
@@ -77,24 +85,25 @@ public class GameViewController implements Initializable {
 
                     angle = number * Math.PI / 180;
                 }
-                errorLabel.setVisible(true);
             } catch (NumberFormatException e) {
                 errorLabel.setText("Invalid input.");
-                errorLabel.setVisible(true);
                 shootBtn.setVisible(false);
             }
-            angleText.clear();
+            errorLabel.setVisible(true);
         }
+        angleText.clear();
     }
 
     @FXML
     private void onShootBtnClick(){
+        // If the user hasn't already made a shot
         if (!continueBtn.isVisible()) {
             double endX;
             double startX = initialX;
             double startY = initialY;
             int v1 = 20;
 
+            // Calculates the end X value of the ball
             endX = 10 * (2 * Math.pow(v1, 2) * Math.cos(angle) * Math.sin(angle)) / 9.8;
 
             calculateShotPath(startX, startY, endX, v1);
@@ -112,6 +121,7 @@ public class GameViewController implements Initializable {
 
         double y = startY;
 
+        // Calculates each coordinate in the path
         for (int i = 1; i < numPoints; i++) {
             double x = i * (startX + endX) / numPoints;
 
@@ -125,12 +135,14 @@ public class GameViewController implements Initializable {
             pathY[i] = y;
         }
 
-        double height = startX/(v1*Math.cos(angle));
+        double height = startX / (v1 * Math.cos(angle));
         double midX = (startX + endX)/2;
         double midY = startY - 2*(startX*Math.tan(angle) + 0.5*9.8*Math.pow(height, 2));
+        // Calculates the peak of the arc
         var cpX = 2 * midX - pathX[0]/2 - pathX[99]/2;
         var cpY = 2 * midY - pathY[0]/2 - pathY[99]/2;
 
+        // Creates a curve using the calculated values
         quadCurve.setStartX(initialX);
         quadCurve.setStartY(initialY);
         quadCurve.setControlX(cpX);
@@ -138,11 +150,13 @@ public class GameViewController implements Initializable {
         quadCurve.setEndY(pathY[99]);
         quadCurve.setEndX(pathX[99]);
 
+        // Sets up the animation
         PathTransition pathTransitionTest = new PathTransition();
         pathTransitionTest.setNode(ballImage);
         pathTransitionTest.setDuration(Duration.seconds(3));
         pathTransitionTest.setPath(quadCurve);
 
+        // Checks for the center of the ball colliding with the center of the hoop
         AnimationTimer collisionChecker = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -156,6 +170,7 @@ public class GameViewController implements Initializable {
 
             double distance = Math.sqrt(Math.pow(ballCenterX - hoopCenterX, 2) + Math.pow(ballCenterY - hoopCenterY, 2));
 
+            // If the distance between the centers is less than 15 pixels, it is a successful shot
             if (distance < 15) {
                 successfulShots++;
                 shotsMadeLabel.setText("Shots Made: " + successfulShots);
@@ -174,6 +189,7 @@ public class GameViewController implements Initializable {
         collisionChecker.start();
     }
 
+    // Randomizes the hoop's position and resets the UI
     public void onContinueBtnPress() {
         double minY = hoopImage.getFitHeight();
         double maxY = 30;
