@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="borderPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxprojectcsa.GameView">
+<Pane fx:id="borderPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxprojectcsa.Controllers.GameViewController">
       <ImageView fx:id="personImage" fitHeight="240.0" fitWidth="110.0" layoutX="32.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="hoopImage" fitHeight="140.0" fitWidth="130.0" layoutX="432.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
          <BorderPane.margin>

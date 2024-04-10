@@ -1,4 +1,4 @@
-package com.example.javafxprojectcsa;
+package com.example.javafxprojectcsa.Controllers;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-public class GameView implements Initializable {
+public class GameViewController implements Initializable {
     private double angle;
     private int successfulShots = 0;
 
